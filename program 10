@@ -1,0 +1,14 @@
+class teacher:
+  def teach(self):
+      print("Teacher is teaching")
+class Student:
+  def study(self):
+      print("student is studying")
+class college(teacher,student):
+  def college_name(self):
+      print("college:KPRIT")
+
+d1=college()
+d1.teach()
+d1.study()
+d1.college_name()
