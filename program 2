@@ -1,0 +1,13 @@
+class college
+name = "KPRIT"
+place = Ghanpur
+def read(self):
+    place = Ghatkesar
+    print(name)
+    print(place)
+    def write(self)
+    print(place)
+c1=college()
+c1.college()
+print(s1.college)
+print(s2.college)
