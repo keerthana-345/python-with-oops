@@ -1,0 +1,17 @@
+import pandas as pd
+# Write your code here
+df = pd.read_csv('tickets.txt', header=None, names=['Date', 'Category', 'Agent', 'Tickets'],
+skipinitialspace=True)
+# Convert Tickets column to numeric to avoid dtype object issues
+df['Tickets'] = pd.to_numeric(df['Tickets'], errors='coerce')
+
+# Find the row with the minimum tickets for 'Technical' category
+tech_min = df[df['Category'] == 'Technical'].loc[df[df['Category'] == 'Technical']['Tickets'].idxmin()]
+# Find the row with the minimum tickets for 'Billing' category
+billing_min = df[df['Category'] == 'Billing'].loc[df[df['Category'] == 'Billing']['Tickets'].idxmin()]
+# Print the results in the required format
+print("Minimum Tickets Resolved Details:")
+print(f"Technical - Month: {tech_min['Date']}, Region: {tech_min['Agent']}, Tickets:
+{int(tech_min['Tickets'])}")
+print(f"Billing - Month: {billing_min['Date']}, Region: {billing_min['Agent']}, Tickets:
+{int(billing_min['Tickets'])}")
