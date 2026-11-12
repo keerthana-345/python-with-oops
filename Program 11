@@ -1,0 +1,22 @@
+import pandas as pd
+
+# Write your code here...
+
+df = pd.read_csv('sales_data.txt', sep=',',
+skipinitialspace=True)
+
+# Group by Region, Date, and Product, summing the Sales
+grouped = df.groupby(['Region', 'Date', 'Product'])
+['Sales'].sum().reset_index()
+
+# Pivot the table to create hierarchical multi-indexing with
+# Products as columns, and Region & Date as rows
+pivot_df = grouped.pivot_table(
+    index=['Region', 'Date'],
+    columns='Product',
+    values='Sales',
+    fill_value=0
+)
+
+# Display the resulting DataFrame
+print(pivot_df)
